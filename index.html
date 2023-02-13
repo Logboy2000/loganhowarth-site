@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <meta name = "viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Goofy Website</title>
 </head>
 <style>
@@ -17,59 +18,31 @@
         margin-right: 8px;
         transition: opacity 0.15s;
     }
+
     .subscribe-button:hover {
         opacity: 0.8;
     }
+
     .subscribe-button:active {
         opacity: 0.4;
     }
-
-
-    .youtube-channel-button {
-        border-style: solid;
-        border-color: rgb(41,118,211);
-        border-radius: 2px;
-        border-width: 1px;
-        background-color: transparent;
-        color: rgb(41,118,211);
-        height: 36px;
-        width: 66px;
-        cursor: pointer;
-        transition: background-color 0.15s, color 0.15s, opacity, 0.15s;
-    }
-    .youtube-channel-button:hover {
-        
-        background-color: rgb(41,118,211);
-        color: white;
-    }
-    .youtube-channel-button:active {
-        opacity: 0.7;
-    }
-
 </style>
 
 
 
 
-
-
-
-
-
 <body>
-<!--Top Bar-->
-<h1>My goofy website</h1>
+    <!--Top Bar-->
+    <h1>My goofy website</h1>
     <h2>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
     </h2>
-
+    
     <hr>
 
     <button class="subscribe-button" onclick="window.open('https://www.youtube.com/@Logboy2000/?sub_confirmation=1')">
         SUBSCRIBE</button>
-    
-    <button class="youtube-channel-button" onclick="window.open('https://www.youtube.com/@Logboy2000/')">
-        CHANNEL</button>
 </body>
+
 </html>
