@@ -16,15 +16,35 @@
         width: 105px;
         cursor: pointer;
         margin-right: 8px;
+        margin-bottom: 8px;
         transition: opacity 0.15s;
     }
-
     .subscribe-button:hover {
         opacity: 0.8;
     }
-
     .subscribe-button:active {
         opacity: 0.4;
+    }
+
+    .default-font {
+        font-family: 'Comic Sans MS';
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .logo-button{
+        font-family: Comic Sans MS;
+        height: 60px;
+        width: 300px;
+        font-size: x-large;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        font-weight: bold;
+    }
+    .logo-button img {
+        vertical-align: middle;
+        margin-right: 8px; /* add some spacing between the image and the text */
     }
 </style>
 
@@ -32,17 +52,45 @@
 
 
 <body>
+    <link rel="icon" type="image/png" href="images/icon.png">
+
+
     <!--Top Bar-->
-    <h1>My goofy website</h1>
+
+      
+    <button class="logo-button" onclick="window.location.href='index.html'">
+
+        <img src="images/icon.png" width="40px" height="40px">
+        
+        My Goofy Website
+    
+    </button>
+    
+     
     <h2>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
     </h2>
     
     <hr>
+    <h2 class="default-font">My Latest Project</h2>
+    <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/HMrVP61qFHs" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+    </iframe>
+    <br>
+    <button class="subscribe-button" onclick="window.open('https://www.youtube.com/@Logboy2000/')">
+        SUBSCRIBE
+    </button>
+    
+    <br>    
+            
+    <img src="images/minecraft.png" alt="Test Image">
 
-    <button class="subscribe-button" onclick="window.open('https://www.youtube.com/@Logboy2000/?sub_confirmation=1')">
-        SUBSCRIBE</button>
 </body>
 
 </html>
