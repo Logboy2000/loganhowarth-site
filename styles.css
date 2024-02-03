@@ -1,0 +1,132 @@
+/**
+ * Stylesheet file defining CSS styles for the webpage.
+ * 
+ * Imports Google Fonts.
+ * Sets background image and styles for body.
+ * Centers content in main tag.
+ * Styles header text.
+ * Styles link buttons, including hover effect.
+ * Aligns projects section.
+ * Styles portfolio section.
+ * Styles button titles and descriptions.
+*/
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+html {
+    background-image: url(images/bg.png);
+}
+
+
+body {
+    padding: 10px 0px;
+    background-repeat: repeat;
+    background-size: auto;
+    font-family: 'Comic Sans MS';
+    color: white;
+}
+
+main {
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+header {
+    font-size: 75px;
+    font-weight: bolder;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 50px;
+    border-radius: 5px;
+    font-family: 'Comic Sans MS';
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s;
+}
+
+header:hover {
+    transition: background-color 0.3s;
+}
+
+h1{
+    font-weight: bolder;
+    padding: 25px;
+    border-radius: 5px;
+    font-size: 35px;
+    transition: background-color 0.3s;
+}
+h1:hover{
+    transition: background-color 0.3s;
+}
+h2{
+    font-size: 25px;
+}
+h3{
+    font-size: 12px;
+    color: rgba(81, 81, 81, 1);
+}
+
+
+a {
+    width: 360px;
+    height: 200px;
+    transform: scale(1);
+    outline-width: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 12px;
+}
+
+a:hover {
+    transform: scale(1.1);
+    transition: transform 0.1s, background-color 0.1s;
+}
+
+.portfolio {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.socials{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+.button-title {
+    display: flex;
+    font-weight: bold;
+    font-family: 'Lato';
+    font-size: 25px;
+    color: white;
+}
+
+.button-desc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lato';
+    font-size: 20px;
+    color: white;
+}
+.background-hover{
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+.background-hover:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+footer{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.2);
+}

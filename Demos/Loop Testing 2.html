@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Loops</title>
+	<script>
+		function Loaded() { // start of loaded
+			//declares loop variable
+			var i
+			//while loop that increments from 5 to 100(counting by five)
+			i = 5
+			while (i <= 100) {//continuing condition
+				document.getElementById('WhileOut').innerHTML += " " + i
+				i += 5
+			}
+			// do loop that decrements from 10 to 1
+			i = 10
+			do {
+				document.getElementById('doOut').innerHTML += " " + i
+				i -= 1
+			} while (i > 0)
+
+			//for loop is in the bottlesOfPop() function that is run when the button is clicked
+
+			//drawing with for loops
+			canvas = document.getElementById("canvas")
+			ctx = canvas.getContext("2d")
+			
+			//draws lines until they go past the width of the canvas
+			for (let x = 0; x < canvas.width; x += 40) {
+				ctx.beginPath()
+				//draws rectangle at 'x'
+				ctx.rect(x, 0, 20, canvas.height) // parameters are x,y,width,height
+				ctx.closePath()
+				ctx.fillStyle = "red"
+				ctx.fill()
+			}
+		}// end of Loaded
+
+		function bottlesOfPop() {
+			var drink
+			//empties the html so that the lyrics dont stack
+			document.getElementById('forOut').innerHTML = ""
+			//gets your input and sets 'drink' to it
+			drink = document.getElementById('drinkInput').value
+			//decrements i from 99 to 1
+			for (let i = 99; i > 0;) {
+				//adds the lines to html including 'i' and the inputted drink
+				document.getElementById('forOut').innerHTML += i + " bottles of " + drink + " on the wall <br/>"
+				document.getElementById('forOut').innerHTML += i + " bottles of " + drink + "<br/>"
+				document.getElementById('forOut').innerHTML += "If one of those bottles should happen to fall<br/>"
+				i -= 1
+				document.getElementById('forOut').innerHTML += i + " bottles of " + drink + " on the wall <br/><br/>"
+			}
+		}
+		function answer() {
+			//declare variables. 
+			//It's spelled "declare" not "declair" source:https://word.tips/spelling/declare-vs-declair/
+			var answer
+			//continuously loops until you give an answer of left or right
+			do {
+				//prompts you and sets the 'answer' varible to your input
+				answer = prompt("Would you like to go left or right")
+			} while (answer != "right" && answer != "left" && answer != "Right" && answer != "Left")
+			alert("Your answer was " + answer)
+
+		}//end of answer
+
+	</script>
+</head>
+
+<body onLoad="Loaded()" style="font-family: Comic Sans MS;">
+	<h2>While Loop Counting to 100 by 5</h2>
+	<div id="WhileOut"></div>
+	<hr />
+	<h2>Do Loop counting down from 10 to 0</h2>
+	<div id="doOut"></div>
+
+	<hr>
+	<h2>For Loop - 99 bottles</h2>
+	<div>
+		<input type="text" id="drinkInput" placeholder="Input Drink Here">
+		<button onclick="bottlesOfPop()">Generate Lyrics</button>
+		<p id="forOut"></p>
+	</div>
+
+	<h2>
+		Drawing</h2>
+	<p>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</p>
+	<h2>Ask Until Answer is Left or Right</h2>
+	<p>
+		<input type="button" name="button" id="button" value="Ask Until Correct" onClick="answer()">
+	</p>
+</body>
+
+</html>

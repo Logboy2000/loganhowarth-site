@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ifPPC</title>
+    <script>
+        var age
+        function myIfs() {
+            age = document.getElementById('age').value
+            //Question 1
+
+            //Question 2
+            //Question 3
+            if (age < 14) {
+                alert("you can't drive ):")
+            }
+            else if (age == 14 || age == 15) {
+                alert("you need to with a licenced driver")
+            }
+            else if (age >= 16 && age < 80) {
+                alert("Enjoy your driving freedom")
+            }
+            else if (age >= 80) {
+                alert("time to take another test")
+            }
+        }
+
+    </script>
+</head>
+<input type="text" id="age" placeholder="Age">
+<br>
+<button onclick="myIfs()">Run Broken Code</button>
+
+
+</html>
