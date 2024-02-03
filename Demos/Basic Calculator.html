@@ -1,0 +1,77 @@
+<!doctype html>
+<html style="text-align: center">
+
+<head>
+    <meta charset="utf-8">
+    <title>Change Variable Intro</title>
+    <h1>Calculator</h1>
+    <script>
+
+        function go() { // start of go
+            // this function runs when the go/calculate button is clicked
+
+            //declare variables
+            var ans
+            var x
+            var y
+            var operation
+            // assign variables a value
+            x = 0
+            y = 0
+            x = document.getElementById('x').value
+            y = document.getElementById('y').value
+            operation = document.getElementById('operation').value
+            // processing
+            if(operation === "+"){
+                ans = +x + +y
+            } 
+            else if(operation === "-"){
+                ans = +x - +y
+            }
+            else if(operation === "*"){
+                ans = +x * +y
+            }
+            else if(operation === "/"){
+                ans = +x / +y
+            }
+            else if(operation === "%"){
+                ans = +x / +y
+            }
+            
+            //output
+            document.getElementById('out').innerHTML = ans
+
+            //alert("Wow look mom i pressed a button") // test message
+
+        } // end of go
+    </script>
+</head>
+
+<body>
+    <p>
+        <label for="txtX">X:</label>
+        <input type="text" name="x" id="x" placeholder="0">
+        <br>
+        <!--Makes a dropdown menu-->
+        <select name="operation" id="operation" style="width: auto;">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">x</option>
+            <option value="/">÷</option>
+            <option value="%">%</option>
+          </select>
+          
+        <br>
+        
+        <label for="txtY">Y:</label>
+        <input type="text" name="y" id="y" placeholder="0">
+        <br>
+    </p>
+    <p>
+        <input onClick="go()" type="button" name="button" id="button" value="Calculate">
+    </p>
+    Answer:
+    <div id="out"></div>
+</body>
+
+</html>

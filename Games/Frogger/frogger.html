@@ -1,0 +1,530 @@
+<!doctype html>
+<html>
+<style>
+	/*Adds a border around the canvas and centers it*/
+	#frogger {
+		border: 5px solid rgb(0, 0, 0);
+		padding: 0;
+		margin: auto;
+		display: block;
+
+		width: 800px;
+	}
+
+	@font-face {
+		font-family: 'sprint_2regular';
+		src: url('sprint-2.woff2') format('woff2'),
+			url('sprint-2.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	h1 {
+		text-align: center;
+		font-family: Comic Sans MS;
+	}
+
+	body {
+		background-color: rgb(36, 168, 124);
+	}
+</style>
+
+<head>
+	<meta charset="utf-8">
+	<title>Frogger</title>
+	<h1>FROGGER</h1>
+	<link rel="icon" href="images/favicon.png" type="image/png">
+	<script>
+
+		//declares and sets starting values of variables
+		var id
+		var canvas
+		var ctx
+		var fps = 60
+		var frogX = 200
+		var frogY = 343
+		var gameOver = false
+		var frogDir = "up"
+		var lifeCount = 5
+		var frogMoving = false
+		var newX = 200
+		var newY = 343
+		var obstacleSpeed = 1
+		const SPEEDMODIFIER = 1
+		var gameWon = false
+
+		var truckX = 350
+		var pinkX = 400
+		var greenX = -32
+		var yellowX = 420
+		var log1X = 100
+		var log2X = 100
+		var log3X = 100
+		var log4X = 100
+		var log1Y = 55
+		var log2Y = 87
+		var log3Y = 119
+		var log4Y = 151
+		var frog1 = false
+		var frog2 = false
+		var frog3 = false
+		var frog4 = false
+		var frog5 = false
+
+
+
+
+		var canvasWidth = 399;
+		var canvasHeight = 400;
+
+
+
+
+
+
+		// load images
+		var topImg = new Image();
+		topImg.src = "images/top.png";
+
+		var frogUp1Img = new Image();
+		frogUp1Img.src = "images/frogUp1.png";
+
+		var frogUp2Img = new Image();
+		frogUp2Img.src = "images/frogUp2.png";
+
+		var frogDown1Img = new Image();
+		frogDown1Img.src = "images/frogDown1.png";
+
+		var frogDown2Img = new Image();
+		frogDown2Img.src = "images/frogDown2.png";
+
+		var frogRight1Img = new Image();
+		frogRight1Img.src = "images/frogRight1.png";
+
+		var frogRight2Img = new Image();
+		frogRight2Img.src = "images/frogRight2.png";
+
+		var frogLeft1Img = new Image();
+		frogLeft1Img.src = "images/frogLeft1.png";
+
+		var frogLeft2Img = new Image();
+		frogLeft2Img.src = "images/frogLeft2.png";
+
+		var safetyFrogImg = new Image();
+		safetyFrogImg.src = "images/safetyFrog.png";
+
+		var middleImg = new Image();
+		middleImg.src = "images/middle.png";
+
+		var truckLeftImg = new Image();
+		truckLeftImg.src = "images/truckLeft.png";
+
+		var pinkCarLeftImg = new Image();
+		pinkCarLeftImg.src = "images/pinkCarLeft.png";
+
+		var raceCarRightImg = new Image();
+		raceCarRightImg.src = "images/raceCarRight.png";
+
+		var yellowCarLeftImg = new Image();
+		yellowCarLeftImg.src = "images/yellowCarLeft.png";
+
+		var largeLogImg = new Image();
+		largeLogImg.src = "images/largeLog.png";
+
+		var mediumLogImg = new Image();
+		mediumLogImg.src = "images/mediumLog.png";
+
+		var smallLogImg = new Image();
+		smallLogImg.src = "images/smallLog.png";
+
+		var jumpscareImg = new Image();
+		jumpscareImg.src = "images/jumpscare.png";
+
+		jumpscareImg.onload = loaded;
+
+
+
+
+
+
+		function loaded() {
+			canvas = document.getElementById("frogger")
+			canvas.width = canvasWidth;
+			canvas.height = canvasHeight;
+
+
+
+
+			ctx = canvas.getContext("2d")
+			ctx.imageSmoothingEnabled = false;
+			id = setInterval(update, 1000 / fps)
+			
+		} // end of loaded
+
+		function update() {
+
+			var bigLogWidth = 180
+			var medLogWidth = 118
+			var smolLogWidth = 84
+
+			//car collision
+			if (frogY == 215 && (frogX > truckX && frogX < truckX + truckLeftImg.width || frogX + 32 > truckX && frogX + 32 < truckX + truckLeftImg.width)) {
+				loseGame()
+			}
+			if (frogY == 247 && (frogX > pinkX && frogX < pinkX + pinkCarLeftImg.width || frogX + 32 > pinkX && frogX + 32 < pinkX + pinkCarLeftImg.width)) {
+				loseGame()
+			}
+
+			if (frogY == 279 && (frogX > greenX && frogX < greenX + raceCarRightImg.width || frogX + 32 > greenX && frogX + 32 < greenX + raceCarRightImg.width)) {
+				loseGame()
+			}
+			if (frogY == 311 && (frogX > yellowX && frogX < yellowX + yellowCarLeftImg.width || frogX + 32 > yellowX && frogX + 32 < yellowX + yellowCarLeftImg.width)) {
+				loseGame()
+			}
+
+
+
+
+
+			//log collision
+			if (frogY == log1Y && (frogX > log1X && frogX < log1X + medLogWidth || frogX + 32 > log1X && frogX + 32 < log1X + medLogWidth)) {
+				frogX += 2 * obstacleSpeed
+				onlog = true
+			}
+			else if (frogY == log2Y && (frogX > log2X && frogX < log2X + bigLogWidth || frogX + 32 > log2X && frogX + 32 < log2X + bigLogWidth)) {
+				frogX -= 1 * obstacleSpeed
+			}
+			else if (frogY == log3Y && (frogX > log3X && frogX < log3X + smolLogWidth || frogX + 32 > log3X && frogX + 32 < log3X + smolLogWidth)) {
+				frogX += 2 * obstacleSpeed
+			}
+			else if (frogY == log4Y && (frogX > log4X && frogX < log4X + medLogWidth || frogX + 32 > log4X && frogX + 32 < log4X + medLogWidth)) {
+				frogX -= 1 * obstacleSpeed
+			} else if (frogY < 153 && frogY > 53) {
+				loseGame()
+			}
+
+
+
+
+
+			//logs
+			if (log1X > canvasWidth) {
+				log1X = -medLogWidth
+			}
+			log1X += 2 * obstacleSpeed
+
+			if (log2X < -bigLogWidth) {
+				log2X = canvasWidth
+			}
+			log2X -= 1 * obstacleSpeed
+
+			if (log3X > canvasWidth) {
+				log3X = -smolLogWidth
+			}
+			log3X += 2 * obstacleSpeed
+
+			if (log4X < -medLogWidth) {
+				log4X = canvasWidth
+			}
+			log4X -= 1 * obstacleSpeed
+			//cars
+			if (truckX < -50) {
+				truckX = 400
+			}
+			truckX -= 2 * obstacleSpeed
+
+			if (pinkX < -32) {
+				pinkX = 400
+			}
+			pinkX -= 4 * obstacleSpeed
+
+			if (greenX > 400) {
+				greenX = -32
+			}
+			greenX += 3 * obstacleSpeed
+
+			if (yellowX < -32) {
+				yellowX = 400
+			}
+			yellowX -= 5 * obstacleSpeed
+
+
+			if (frogY < 50) {
+				winGame()
+			}
+			if (frogX < -20 || frogX > 391 || frogY > 350) {
+				loseGame()
+			}
+			if (gameOver == false && gameWon == false) {
+				render()
+			}
+		} // end of update
+
+		function render() {
+			//clear screen
+			ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+			//ctx.drawImage(jumpscareImg, 0, 55);
+
+			//draw water
+			ctx.beginPath()
+			ctx.rect(0, 0, 399, 185); // parameters are x,y,width,height
+			ctx.closePath()
+			ctx.fillStyle = "#000042";
+			ctx.fill();
+
+			//draw road
+			ctx.beginPath()
+			ctx.rect(0, 210, 399, 150); // parameters are x,y,width,height
+			ctx.closePath()
+			ctx.fillStyle = "black";
+			ctx.fill();
+
+			//draw safe zones
+			ctx.drawImage(topImg, 0, 0);
+			ctx.drawImage(middleImg, 0, 180);
+			ctx.drawImage(middleImg, 0, 343);
+
+			//draw logs
+			ctx.drawImage(mediumLogImg, log1X, log1Y);
+			ctx.drawImage(largeLogImg, log2X, log2Y);
+			ctx.drawImage(smallLogImg, log3X, log3Y);
+			ctx.drawImage(mediumLogImg, log4X, log4Y);
+
+			// Draw the frog based on its direction
+			if (frogDir == "up") {
+				ctx.drawImage(frogUp1Img, frogX, frogY);
+			}
+			else if (frogDir == "down") {
+				ctx.drawImage(frogDown1Img, frogX, frogY);
+			}
+			else if (frogDir == "left") {
+				ctx.drawImage(frogLeft1Img, frogX, frogY);
+			}
+			else if (frogDir == "right") {
+				ctx.drawImage(frogRight1Img, frogX, frogY);
+			}
+
+			//draw cars
+			ctx.drawImage(truckLeftImg, truckX, 215);
+			ctx.drawImage(pinkCarLeftImg, pinkX, 247);
+			ctx.drawImage(raceCarRightImg, greenX, 279);
+			ctx.drawImage(yellowCarLeftImg, yellowX, 311);
+
+			//draw UI
+			ctx.beginPath()
+			ctx.rect(0, 375, 399, 30); // parameters are x,y,width,height
+			ctx.closePath()
+			ctx.fillStyle = "grey";
+			ctx.fill();
+
+			ctx.drawImage(frogUp1Img, 0, 373);
+
+			ctx.font = "15px sprint_2regular";
+			ctx.fillStyle = "#FFFFFF"
+			ctx.fillText("x " + lifeCount, 32, 395);
+			ctx.fillText("lvl " + obstacleSpeed, 300, 395);
+
+			if (frog1) {
+				ctx.drawImage(safetyFrogImg, 11, 23, 32, 32);
+			}
+			if (frog2) {
+				ctx.drawImage(safetyFrogImg, 97, 23, 32, 32);
+			}
+			if (frog3) {
+				ctx.drawImage(safetyFrogImg, 182, 23, 32, 32);
+			}
+			if (frog4) {
+				ctx.drawImage(safetyFrogImg, 264, 23, 32, 32);
+			}
+			if (frog5) {
+				ctx.drawImage(safetyFrogImg, 351, 23, 32, 32);
+			}
+
+
+		} // end of render
+
+		document.onkeydown = checkKey;
+
+		function checkKey(e) {//calls the corresponding function when a key is pressed
+
+			e = e || window.event;
+
+			if (e.keyCode == '38') {
+				// up arrow
+				moveup()
+
+			}
+			else if (e.keyCode == '40') {
+				// down arrow
+				movedown()
+			}
+			else if (e.keyCode == '37') {
+				// left arrow
+				moveleft()
+			}
+			else if (e.keyCode == '39') {
+				// right arrow
+				moveright()
+			}
+			else if (e.keyCode == '192') {
+				// `
+				lifeCount = Infinity
+			}
+			else if (e.keyCode == '13') {
+				// Enter
+				newGame()
+			} else if (e.keyCode == '61') {
+				// +
+
+				obstacleSpeed += 1
+			} else if (e.keyCode == '173') {
+				// -
+				if (obstacleSpeed < 2) {
+					obstacleSpeed = 2
+				}
+				obstacleSpeed -= 1
+			}else if (e.keyCode == '87') {
+				// w
+				gameEnd()
+			}
+		}
+
+		function moveup() {
+			frogDir = "up"
+			frogY -= 32
+		}
+
+		function movedown() {
+			frogDir = "down"
+			frogY += 32
+		}
+
+		function moveleft() {
+			frogDir = "left"
+			frogX -= 32
+		}
+
+		function moveright() {
+			frogDir = "right"
+			frogX += 32
+		}
+
+		function loseGame() {
+			//does stuff when the game is lost
+			console.log("loseGame function called");
+
+			if (lifeCount == 1) {
+				gameOver = true
+				ctx.beginPath()
+				ctx.rect(0, 0, canvasWidth, canvasHeight); // parameters are x,y,width,height
+				ctx.closePath()
+				ctx.fillStyle = "black";
+				ctx.fill();
+
+				ctx.font = "15px sprint_2regular";
+				ctx.fillStyle = "#C40008"
+				ctx.fillText("GAME OVER", 130, 195);
+				ctx.fillText("PRESS ENTER", 115, 215);
+			}
+			lifeCount -= 1
+			frogX = 200
+			frogY = 343
+			frogDir = "up"
+		}
+
+		function winGame() {
+			//does stuff when the game is won
+			if (frogX > 0 && frogX < 80) {
+				frog1 = true
+				lifeCount += 1
+			}
+			if (frogX > 80 && frogX < 160) {
+				frog2 = true
+				lifeCount += 1
+			}
+			if (frogX > 160 && frogX < 240) {
+				frog3 = true
+				lifeCount += 1
+			}
+			if (frogX > 240 && frogX < 320) {
+				frog4 = true
+				lifeCount += 1
+			}
+			if (frogX > 320 && frogX < 399) {
+				frog5 = true
+				lifeCount += 1
+			}
+
+			if (frog1 && frog2 && frog3 && frog4 && frog5) {
+				setTimeout(function () {
+					gameEnd()
+				}, 30)
+			}
+			frogY = 343
+		}
+
+		function gameEnd() {
+			gameWon = true
+
+
+			ctx.beginPath()
+			ctx.rect(0, 0, canvasWidth, canvasHeight); // parameters are x,y,width,height
+			ctx.closePath()
+			ctx.fillStyle = "black";
+			ctx.fill();
+
+
+			ctx.font = "15px sprint_2regular";
+			ctx.fillStyle = "#C40008"
+			ctx.fillText("YOU WIN", 150, 155);
+			ctx.fillText("PRESS ENTER", 120, 175);
+			ctx.fillText("LEVEL " + obstacleSpeed, 123, 215);
+			ctx.fillText("LIVES " + lifeCount, 122, 230);
+			if (lifeCount > 10 || lifeCount == 10) {
+				ctx.fillText("PERFECT RUN GG", 95, 255);
+				ctx.drawImage(jumpscareImg, 0, 399 - canvasHeight / 3, canvasWidth, canvasHeight / 3)
+				ctx.drawImage(jumpscareImg, 0, 0, canvasWidth, canvasHeight / 3)
+			}
+
+
+
+		}
+
+		function newGame() {
+			frogX = 200
+			frogY = 343
+			gameOver = false
+			frogDir = "up"
+			lifeCount = 5
+			obstacleSpeed = 1
+
+			frogMoving = false
+			gameWon = false
+
+			truckX = 350
+			pinkX = 400
+			greenX = -32
+			yellowX = 420
+			log1X = 100
+			log2X = 100
+			log3X = 100
+			log4X = 100
+			log1Y = 55
+			log2Y = 87
+			log3Y = 119
+			log4Y = 151
+			frog1 = false
+			frog2 = false
+			frog3 = false
+			frog4 = false
+			frog5 = false
+		}
+
+	</script>
+</head>
+
+<body>
+	<canvas id="frogger"></canvas>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<style>
+    /*Adds a border around the canvas*/
+    #myCanvas {
+        border: 25px solid rgb(0, 0, 0);
+    }
+
+    /*Centers the header and changes the color and font*/
+    h1 {
+        text-align: center;
+        color: rgb(74, 10, 250);
+        font-family: Comic Sans MS;
+    }
+
+    /*Centers h4*/
+    h4 {
+        text-align: center;
+    }
+
+    /*Changes the BG color*/
+    body {
+        background-color: aqua;
+    }
+</style>
+<!--Main Header-->
+<h1>
+    Epic Shapes
+</h1>
+<!--Displays Instructions-->
+<h4>
+    ('<' Slower) ('>' Faster) <br>
+        ('Left Click' Bigger) ('Right Click' Smaller) <br>
+
+</h4>
+
+
+<!--adds a table with variables and aligns it to the center-->
+<div style="text-align: center; ">
+    <table style="margin-left: auto; margin-right: auto;">
+        <tr>
+            <td>
+                Clicks
+                <p id="Clicks"></p>
+            </td>
+            <td>
+                Speed
+                <p id="Speed"></p>
+            </td>
+            <td>
+                Size
+                <p id="Size"></p>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<head>
+
+    <title>Moving Box</title>
+    <script>
+
+        // Global Variables
+        var moveSpeed = 10 //pixels per frame
+        var physicsFps = 120
+        var clickCount = 0
+        // Drawing
+        var canvas
+        var ctx
+        var id
+        // Red Box
+        var redX = 0
+        var redY = 0
+        var redWidth = 100
+        var redHeight = 100
+        // Bouncing Box
+        var blueX = 400
+        var blueY = 200
+        var blueWidth = 100
+        var blueHeight = 100
+        var blueXdir = 1
+        var blueYdir = 1
+        //Circle Position
+        var greenX
+        var greenY
+        //Circle Dimensions
+        var greenRadius = 50;
+        //mouse
+        var mouseX
+        var mouseY
+        //keybaord
+        var keysDown = {};
+
+        function loaded() {
+            canvas = document.getElementById("myCanvas")
+            ctx = canvas.getContext("2d")
+
+            // change canvas size
+            canvas.width = 630
+            canvas.height = 630
+
+            canvas.addEventListener("mousemove", followMouse, false);
+            canvas.addEventListener('contextmenu', event => event.preventDefault());
+
+            //set update speed
+            id = setInterval(update, 1000 / physicsFps)
+        }//end of loaded
+
+
+        function update() {
+            /*
+                Runs 'physicsFps' times per second
+                Runs render
+                this is where variables change
+                user triggered
+            */
+
+            //Adds varables to HTML
+            document.getElementById('Clicks').innerHTML = clickCount;
+            document.getElementById('Speed').innerHTML = moveSpeed;
+            document.getElementById('Size').innerHTML = greenRadius;
+            document.onkeydown = checkKey;
+
+            //On left click increment click count and the radius of the circle
+            canvas.onclick = function (IncrementClickCount) {
+                clickCount = clickCount + 1
+                greenRadius = greenRadius + 1
+            }
+
+            //On left click increment click count and decrement the radius of the circle
+            canvas.oncontextmenu = function (IncrementRightClickCount) {
+                clickCount = clickCount + 1
+                greenRadius = greenRadius - 1
+            }
+
+            //Sets the green circles position to be equal to the mouse pointer
+            greenX = mouseX - 25
+            greenY = mouseY - 25
+
+            //Moves the blue square based on it's current direction
+            blueX = blueX - moveSpeed * blueXdir
+            blueY = blueY - moveSpeed * blueYdir
+
+            //Checks if the blue square collides with the edge of the canvas
+            if (blueY + blueHeight >= canvas.height) {
+                blueYdir = blueYdir * -1
+                blueY = canvas.height - blueHeight
+            }
+            if (blueX + blueWidth >= canvas.width) {
+                blueXdir = blueXdir * -1
+                blueX = canvas.width - blueWidth
+            }
+            if (blueY <= 0) {
+                blueYdir = blueYdir * -1
+                blueY = 0
+
+            }
+            if (blueX <= 0) {
+                blueXdir = blueXdir * -1
+                blueX = 0
+            }
+
+
+            //Checks if the red square collides with the edge of the canvas
+            if (redY + redHeight >= canvas.height) {
+                redY = canvas.height - redHeight
+            }
+            if (redX + redWidth >= canvas.width) {
+                redX = canvas.width - redWidth
+            }
+            if (redX <= 0) {
+                redX = 0
+            }
+            if (redY <= 0) {
+                redY = 0
+            }
+
+            //Calls the render function
+            render()
+            //Prevent context menu from appearing
+            preventDefault()
+
+        }
+
+        function checkKey(e) { //checks for keybinds
+
+            e = e || window.event;
+
+            if (e.keyCode == '38') {
+                redY = redY - moveSpeed//down
+            }
+            else if (e.keyCode == '40') {
+                redY = redY + moveSpeed//up
+            }
+            else if (e.keyCode == '37') {
+                redX = redX - moveSpeed//left
+            }
+            else if (e.keyCode == '39') {
+                redX = redX + moveSpeed//right
+            }
+            else if (e.keyCode == '188') {
+                moveSpeed = moveSpeed - 1// < or ,
+            }
+            else if (e.keyCode == '190') {
+                moveSpeed = moveSpeed + 1// > or .
+            }
+
+        }
+
+        function render() {
+            //Draws to the screen
+            //Called by the 'update' function
+
+            //draws the BG(clears the canvas)
+            ctx.beginPath()
+            ctx.rect(0, 0, canvas.width, canvas.height); // parameters are x,y,width,height
+            ctx.closePath()
+            ctx.fillStyle = "rgb(200,200,200)";
+            ctx.fill();
+
+            // Draw a Red Rectangle
+            ctx.beginPath()
+            ctx.rect(redX, redY, redWidth, redHeight); // parameters are x,y,width,height
+            ctx.closePath()
+            ctx.fillStyle = "red";
+            ctx.fill();
+
+            // Draw a Blue Rectangle
+            ctx.beginPath()
+            ctx.rect(blueX, blueY, blueWidth, blueHeight); // parameters are x,y,width,height
+            ctx.closePath()
+            ctx.fillStyle = "blue";
+            ctx.fill();
+
+            //Draw Circle
+            ctx.beginPath();
+            ctx.arc(greenX, greenY, greenRadius, 0, 2 * Math.PI); // parameters are x,y,radius,starting angle, and ending angle 
+            ctx.closePath();
+            ctx.fillStyle = "green"
+            ctx.fill();
+
+        }// end of render
+
+        function followMouse(e) {
+            //Gets the current mouse position
+            mouseX = event.x;
+            mouseY = event.y;
+            //Offsets the varibles to line up with the mouse
+            mouseX -= canvas.offsetLeft;
+            mouseY -= canvas.offsetTop;
+        }
+
+    </script>
+</head>
+
+
+
+<body onLoad="loaded()">
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<style>
+	#myCanvas {
+		border: 5px solid black;
+	}
+</style>
+
+<head>
+
+	<title>Moving Box</title>
+	<script>
+
+		// global variables
+		// drawing
+		var canvas
+		var ctx
+		var id
+		var fps = 120
+		// green box
+		var greenX = 500
+		var greenY
+		var greenY2
+
+		var greenWidth = 100
+		var greenHeight = 350
+
+		var pipeSpacing = 200
+
+		var birdX = 100
+		var birdY = 300
+		var birdWidth = 50
+		var birdHeight = 50
+		var birdGravity = 0
+
+		var play = false
+		var score = 0
+		var highScore = 0
+
+		function loaded() {
+			//code goes here
+			canvas = document.getElementById("myCanvas")
+			ctx = canvas.getContext("2d")
+
+			// change canvas size
+			canvas.width = 450
+			canvas.height = 600
+			id = setInterval(update, 1000 / fps)
+		}//end of loaded
+
+		function update() {
+			/*
+			Function that is called 30 times per second
+			Moves on screen objects
+		    
+			*/
+
+			birdGravity = birdGravity + 1
+			birdY = birdY + birdGravity
+			greenX = greenX + -3
+			greenY2 = greenY + pipeSpacing + greenHeight
+
+
+
+
+
+
+
+
+			if (birdY + birdHeight > canvas.height) {
+				birdY = canvas.height - birdHeight
+			}
+			if (birdY < 0) {
+				birdGravity = 0
+				birdY = 0
+			}
+			if (greenX <= -100) {
+				newPipe()
+			}
+			if (greenX < birdX) {
+				score++
+			}
+
+
+			document.getElementById("Score").innerHTML = score
+			if (birdX + birdWidth > greenX && birdX < greenX + greenWidth && (birdY > greenY && birdY < greenY + greenHeight || birdY + birdHeight > greenY2)) {
+				death()
+			}
+			render()
+		}// end of update
+		function render() {
+			//clear the screen
+			ctx.beginPath()
+			ctx.rect(0, 0, canvas.width, canvas.height); // parameters are x,y,width,height
+			ctx.closePath()
+			ctx.fillStyle = "white";
+			ctx.fill();
+
+
+			// draw a green rectangle
+			ctx.beginPath()
+			ctx.rect(greenX, greenY, greenWidth, greenHeight); // parameters are x,y,width,height
+			ctx.closePath()
+			ctx.fillStyle = "green";
+			ctx.fill();
+
+			// draw a 2nd green rectangle
+			ctx.beginPath()
+			ctx.rect(greenX, greenY2, greenWidth, greenHeight); // parameters are x,y,width,height
+			ctx.closePath()
+			ctx.fillStyle = "green";
+			ctx.fill();
+
+			// draw a bird rectangle
+			ctx.beginPath()
+			ctx.rect(birdX, birdY, birdWidth, birdHeight); // parameters are x,y,width,height
+			ctx.closePath()
+			ctx.fillStyle = "yellow";
+			ctx.fill();
+		}// end of render
+		document.onkeydown = checkKey;
+
+		function checkKey(e) {
+
+			e = e || window.event;
+
+			if (e.keyCode == '38') {
+				// up arrow
+				jump()
+			}
+			else if (e.keyCode == '13') {
+				//enter
+				death()
+			} else if (e.keyCode == '78') {
+				//n
+				newPipe()
+			}
+
+		}
+
+		function jump() {
+			birdGravity = -15
+		}
+		function newPipe() {
+			greenX = canvas.width
+			greenY = Math.random() * (0 - -290) + -290;
+		}
+		function death() {
+			birdY = 300
+			birdGravity = 0
+			if (score > highScore) {
+				highScore = score
+			}
+
+			score = 0
+			newPipe()
+			play = false
+		}
+	</script>
+</head>
+
+
+<body onLoad="loaded()">
+	<canvas id="myCanvas" width="400" height="400"></canvas>
+	<br>
+	Score:<p id="Score"></p>
+
+</body>
+
+</html>

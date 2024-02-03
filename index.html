@@ -4,121 +4,106 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Goofy Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<style>
 
-body {
-    background-image:url(images/bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.default-font       { 
-    font-family: 'Open Sans';
-    color: white;
-}
-.nav-button        {
-    font-family: 'Open Sans';
-    height: 60px;
-    width: 60px;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    color: white;
-    align-items: center;
-    padding-top: 17px;
-    
-}
-nav                 {       
-    top: 0;
-    left: 0;     
-    position: fixed;
-    height: 80px;
-    width: 60%;
-    max-width: 100%;
-    background-color: black;
-    padding-left: 20%;
-    padding-right: 20%;
-    
-}
-main                {
-    margin: auto;
-    width: 50%;
-    text-align: center;
-}
-.title              {
-    font-size:75pt;
-    font-weight: bolder;
-    text-align: center;
-    font-family: 'Open Sans';
-}
-.right{
-    float: right;
-    
-}
+<body>
+    <header class="background-hover">
+        <img src="images/pfp.png" alt="logo" width="100px" style="padding-right: 10px;">Logboy2000<br>
+        <h2>Programmer, Minecraft Modder, [Insert Other Thing Here]</h2>
+    </header>
 
-</style>
-
-<body class="default-font">
-    <link rel="icon" type="image/png" href="images/icon.png">
-    <div class="image-container">
-        <img src="images/bg.jpg">
-        <div class="overlay"></div>
-    </div>
-      
-
-    <!--Navbar-->
-    <nav>
-        
-
-
-        <button class="nav-button" onclick="window.location.href='#'">
-            <img src="images/icon.png" width="40px" height="40px">
-        </button>
-
-        <div class="right">
-            <button class="nav-button" class="right" onclick="window.location.href='#'">
-                Test
-            </button>
-            <button class="nav-button" class="right" onclick="window.open('https://www.youtube.com/@Logboy2000/')">
-                YouTube
-            </button>
-        </div>
-        
-     
-        
-    </nav>
-    <!--Main Content-->
     <main>
-        <section id="">
-            <div class="title" style="padding-top: 150px;">
-                Log's Blog
-            </div>
+        <h1 class="background-hover">About Me</h1>
+        <section class="about">
+            <p class="background-hover" style="padding: 25px;">I'm a 15 year old that likes to program stuff I guess</p>
         </section>
-        
-        <br>
-        <div class="content">
-            
-            <h2 class="default-font">My Latest Project</h2>
-            <iframe 
-            width="560" 
-            height="315" 
-            src="https://www.youtube.com/embed/JLF7UBKFu3c?si=SESBQOr9plqrAuCZ" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen></iframe>
-        <br>
-        
-
+        <h1 class="background-hover">Projects</h1>
+        <section class="portfolio">
+            <!--Legend of Charlie-->
+            <a href="Games/The-Legend-Of-Charlie-1.1.1.exe" download class="background-hover">
+                <p class="button-title">
+                    <img src="images/portfolio/charlie.png" alt="charlie" style="padding-right: 5px;">
+                    The Legend of Charlie
+                </p>
+                <p class="button-desc">
+                    A platformer I made in Gamemaker Studio 1.2 as a CS-10 final project
+                    (Windows Installer Download)
+                </p>
+            </a>
+            <!--Frogger Javascript-->
+            <a href="Games/Frogger/frogger.html" class="background-hover" target="_blank">
+                <p class="button-title">
+                    <img src="images/portfolio/frogger.png" alt="frogger" style="padding-right: 5px;">
+                    Frogger Javascript
+                </p>
+                <p class="button-desc">
+                    A very basic recreation of the frogger arcade game in javascript
+                </p>
+            </a>
+            <!--TNT Villager Mod-->
+            <a href="https://modrinth.com/mod/demolitionist-villager" class="background-hover" target="_blank">
+                <p class="button-title">
+                    <img src="images/portfolio/villager.png" alt="tntvillager" style="padding-right: 5px;" width="32px">
+                    Demolitionist Villager
+                </p>
+                <p class="button-desc">
+                    A Minecraft mod built for Fabric that adds a demolitionist villager type with some explosive trades
+                </p>
+            </a>
+            <!--Tic Tac Toe-->
+            <a href="Games/Tic Tac Toe/TicTacToe.html" class="background-hover" target="_blank">
+                <p class="button-title">
+                    <img src="images/portfolio/tictactoe.png" alt="tictactoe" style="padding-right: 5px;" width="32px">
+                    Tic-Tac-Toe
+                </p>
+                <p class="button-desc">
+                    A simple remake of the classic game Tic-Tac-Toe in Javascript
+                </p>
+            </a>
+        </section>
+        <h1 class="background-hover">My Stuff</h1>
+        <section class="socials">
+            <!--YouTube-->
+            <a href="https://youtube.com/@Logboy2000" style="height: fit-content;" class="background-hover" target="_blank">
+                <p class="button-title">
+                    <img src="images/socials/youtube.png" alt="youtube" style="padding-right: 5px;" width="32px">
+                    YouTube
+                    <h3>@Logboy2000</h3>
+                </p>
+            </a>
+            <!--Discord-->
+            <a style="height: fit-content;" class="background-hover" target="_blank">
+                <p class="button-title">
+                    <img src="images/socials/discord.png" alt="discord" style="padding-right: 5px;" width="40px">
+                    Discord
+                    <h3>logboy2000</h3>
+                </p>
+            </a>
+            <!--GitHub-->
+            <a href="https://github.com/Logboy2000" style="height: fit-content;" class="background-hover" target="_blank">
+                <p class="button-title">
+                    <img src="images/socials/github.png" alt="github" style="padding-right: 5px;" width="40px">
+                    GitHub
+                    <h3>Logboy2000</h3>
+                </p>
+            </a>
+            <!--Reddit-->
+            <a href="https://www.reddit.com/user/Logboy2000" style="height: fit-content;" class="background-hover" target="_blank">
+                <p class="button-title">
+                    <img src="images/socials/reddit.png" alt="reddit" style="padding-right: 5px;" width="40px">
+                    Reddit
+                    <h3>Logboy2000</h3>
+                </p>
+            </a>
+        </section>
     </main>
+
     <footer>
-
+        I need a better background image
     </footer>
-    
-
-    
 </body>
 
 </html>

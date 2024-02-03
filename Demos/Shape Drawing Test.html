@@ -1,0 +1,67 @@
+<html>
+<head>
+
+<title>Drawing</title>
+<script>
+    var id // for movement
+    
+    //Box Position
+    var boxX = 200; 
+    var boxY = 20; 
+    //Box Dimensions
+    var boxWidth = 150; 
+    var boxHeight = 200; 
+    //Circle Position
+    var circleX = 100; 
+    var circleY = 75; 
+    //Circle Dimensions
+    var circleRadius = 50;
+    var circleStartAngle = 0;
+    var circleEndAngle = 2;
+
+
+	function loaded(){
+		
+		var canvas=document.getElementById("myCanvas")
+		var ctx=canvas.getContext("2d")
+
+        id = setInterval(update,1000/30)
+
+          window.addEventListener
+        //Draw Red Box
+        ctx.beginPath();
+        ctx.rect(boxX,boxY,boxWidth,boxHeight);
+        ctx.closePath();
+        ctx.fillStyle="rgb(255, 0, 1)";
+        ctx.fill();
+
+
+        //Draw Circle
+        ctx.beginPath();
+        ctx.arc(circleX,circleY,circleRadius,circleStartAngle,circleEndAngle*Math.PI); // parameters are x,y,radius,starting angle in radians, ending angle in radians, 
+        ctx.closePath();
+        ctx.fillStyle="green"
+        ctx.fill();
+
+
+        
+
+       
+        
+
+
+
+
+
+	}//end of loaded
+    function update(){
+       
+    }//end of update
+</script>
+</head>
+
+
+<body onLoad="loaded()">
+<canvas id="myCanvas" width="1920" height="1080"></canvas>
+</body>
+</html>
