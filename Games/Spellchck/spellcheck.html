@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spellchck</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body>
+    <button onclick="getWord()">Get Word</button>
+    <input type="text" placeholder="Input Word Here..." id="input" style="height: 50px;">
+    <button onclick="checkSpelling()">Submit Word</button>
+</body>
+
+
+<script>
+    async function getWord() {
+        //Sets to default values
+        document.getElementById("wordOutput").innerHTML = "Word: Getting Word...";
+        document.getElementById("defineOutput").innerHTML = "Word: Getting Definition...";
+        //Gets a random word from API (random-word-api.herokuapp.com)
+        let responseWord = await fetch("https://random-word-api.herokuapp.com/word?number=1");
+        let dataWord = await responseWord.json();
+        let currentWord = dataWord[0];
+        //Displays Word
+        document.getElementById("wordOutput").innerHTML = "Word: " + currentWord;
+        //Gets more info on the word from another API (dictionaryapi.dev)
+        let responseFull = await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/"+currentWord);
+        let dataFull = await responseFull.json();
+        //Decodes API response
+        let currentDefinition = dataFull[0].meanings[0].definitions[0].definition; 
+        //Displays API Response
+        document.getElementById("defineOutput").innerHTML = "Definition: " + currentDefinition;
+
+
+    }
+    function checkSpelling(){
+        playerInput = document.getElementById("input").innerHTML;
+        if(playerInput == currentWord){
+            alert("Correct!");
+        }else{
+            alert("Incorrect :(");
+        }
+    }
+</script>
+
+
+
+<spoiler><p id="wordOutput">Word: Waiting...</p></spoiler>
+<p id="defineOutput">Definition: Waiting...</p>
+
+</html>
