@@ -1,16 +1,4 @@
-/**
- * Stylesheet file defining CSS styles for the webpage.
- * 
- * Imports Google Fonts.
- * Sets background image and styles for body.
- * Centers content in main tag.
- * Styles header text.
- * Styles link buttons, including hover effect.
- * Aligns projects section.
- * Styles portfolio section.
- * Styles button titles and descriptions.
-*/
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@385&display=swap');
 
 html {
     background-image: url(images/bg.png);
@@ -24,7 +12,7 @@ img {
 body {
     background-repeat: repeat;
     background-size: auto;
-    font-family: 'Comic Sans MS';
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
     color: white;
 }
@@ -32,15 +20,6 @@ body {
 main {
     text-align: center;
 }
-
-header {
-    font-size: 75px;
-    font-weight: bolder;
-    padding: 10px;
-    font-family: 'Comic Sans MS';
-    text-align: center;
-}
-
 
 
 h1 {
@@ -68,7 +47,7 @@ a {
    
     max-width: 500px;
     height: auto;
-    margin: 10px;
+    margin: 15px;
     transform: scale(1);
     border-radius: 50px;
     transition: transform 0.3s, background-color 0.3s;
@@ -90,7 +69,7 @@ a:hover {
 .button-title {
     display: flex;
     font-weight: bold;
-    font-family: 'Lato';
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 25px;
     color: white;
 }
@@ -99,7 +78,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Lato';
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     color: white;
 }
