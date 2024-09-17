@@ -58,7 +58,6 @@ const timerLevel1TotalFrames = 2000 // The amount of time that level 1 starts wi
 var missPenaltyFrames = 30 // The timer decrease when missing a mole
 
 
-
 // Defines how long the "LEVEL COMPLETE" screen is shown
 const levelCompleteStartFrames = 120
 var levelCompleteFramesRemaining = 120
