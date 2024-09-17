@@ -16,67 +16,63 @@ html {
     background-image: url(images/bg.png);
 }
 
+img {
+    width: 40px;
+    height: 40px;
+}
 
 body {
-    padding: 10px 0px;
     background-repeat: repeat;
     background-size: auto;
     font-family: 'Comic Sans MS';
+    font-size: 15px;
     color: white;
 }
 
 main {
-    width: 50%;
     text-align: center;
-    margin-left: 25%;
-    margin-right: 25%;
 }
 
 header {
     font-size: 75px;
     font-weight: bolder;
-    margin-left: 25%;
-    margin-right: 25%;
-    padding: 50px;
-    border-radius: 5px;
+    padding: 10px;
     font-family: 'Comic Sans MS';
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: background-color 0.3s;
 }
 
-header:hover {
-    transition: background-color 0.3s;
-}
 
-h1{
+
+h1 {
     font-weight: bolder;
     padding: 25px;
-    border-radius: 5px;
     font-size: 35px;
     transition: background-color 0.3s;
 }
-h1:hover{
+
+h1:hover {
     transition: background-color 0.3s;
 }
-h2{
+
+h2 {
     font-size: 25px;
 }
-h3{
+
+h3 {
     font-size: 12px;
     color: rgba(81, 81, 81, 1);
 }
 
 
 a {
-    width: 360px;
-    height: 200px;
-    transform: scale(1);
-    outline-width: 10px;
-    transition: transform 0.3s, background-color 0.3s;
-    border-radius: 5px;
+   
+    max-width: 500px;
+    height: auto;
     margin: 10px;
-    display: flex;
+    transform: scale(1);
+    border-radius: 50px;
+    transition: transform 0.3s, background-color 0.3s;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
@@ -88,17 +84,9 @@ a:hover {
     transition: transform 0.1s, background-color 0.1s;
 }
 
-.portfolio {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(2, 1fr);
-}
 
-.socials{
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(2, 1fr);
-}
+
+
 .button-title {
     display: flex;
     font-weight: bold;
@@ -115,18 +103,20 @@ a:hover {
     font-size: 20px;
     color: white;
 }
-.background-hover{
+
+.background-hover {
+    border-radius: 40px;
     background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
+    width: auto;
 }
-.background-hover:hover{
+
+.background-hover:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
 
 
-
-footer{
+footer {
     text-align: center;
     color: rgba(255, 255, 255, 0.2);
 }
