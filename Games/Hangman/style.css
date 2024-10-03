@@ -5,65 +5,24 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    background-color: #444;
+    background-color: #696969;
 }
 
 body {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 25px;
     color: #FFFFFF;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* Use fr units to distribute space evenly */
-    grid-template-rows: auto 1fr 1fr;
-    
-}
-
-
-
-#keyboard, #settings, #wordContainer{
-    background-color: #444;
-    color: #fff;
-    padding: 10px;
-}
-
-img {
-    grid-column: 1;
-    grid-row: 2;
-    width: 100%;
-    height: 100%;
-    object-fit: scale-down;
-    background-color: #FFFFFF;
-    outline: #444 10px solid;
-    border-radius: 10px;
-}
-
-#keyboard {
-    grid-column: 1;
-    grid-row: 3;
     text-align: center;
+}
+#wordContainer {
+    width: 50%;
 }
 
 #settings {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
+    width: 50%;
+    
 }
 
-#wordContainer {
-    grid-column: 1;
-    grid-row: 1;
-    text-align: center;
-}
-
-#screen {
-    background-color: #000000;
-    border-radius: 5px;
-    margin: 3px;
-    color: white;
-    min-height: 40px;
-    font-size: inherit;
-    text-align: center;
-}
 
 
 input {
@@ -79,8 +38,13 @@ input {
     display: inline;
 }
 
-button {
-    transition: transform 0.2s;
+img {
+    background-color: #FFFFFF;
+    image-rendering: pixelated;
+}
+
+.button {
+    transition: all 0.2s;
     margin: 3px;
     min-width: 50px;
     min-height: 50px;
@@ -93,13 +57,31 @@ button {
     font-family: inherit
 }
 
-button:hover {
+.button:hover {
     transform: scale(1.5);
     background-color: #373737;
     cursor: pointer;
 }
 
-button:active {
+.button:active {
     transform: scale(1.25);
     background-color: #696969;
+}
+
+.buttonDisabled {
+    transition: all 0.2s;
+    margin: 3px;
+    min-width: 50px;
+    min-height: 50px;
+    font-size: inherit;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #4d4d4d;
+    color: #6b6b6b;
+    transform: scale(1);
+    font-family: inherit
+}
+
+#showAnswerButton {
+    width: 105px;
 }
