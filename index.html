@@ -9,78 +9,15 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
-<body>
+<body onload="loaded()">
 
     <main>
         <h1 style="font-size:75px; margin: 0%;">Logan Howarth</h1>
         <h2> Minecraft Modder, Game Maker, Computer Sciencer</h2>
         <!--<h1 class="background-hover">About Me</h1>-->
         <h1 class="background-hover">My Projects</h1>
-        <section class="portfolio">
-            <!--Legend of Charlie-->
-            <a href="Games/The-Legend-Of-Charlie-1.1.1.exe" download class="background-hover">
-                <p class="button-title">
-                    <img src="images/portfolio/charlie.png" alt="charlie" style="padding-right: 5px;">
-                    The Legend of Charlie
-                </p>
-                <p class="button-desc">
-                    A platformer I made in Gamemaker Studio 1.2 as a CS-10 final project
-                    (Windows Installer Download)
-                </p>
-            </a>
-            <!--Frogger Javascript-->
-            <a href="Games/Frogger/frogger.html" class="background-hover" target="_blank">
-                <p class="button-title">
-                    <img src="images/portfolio/frogger.png" alt="frogger" style="padding-right: 5px;">
-                    Frogger
-                </p>
-                <p class="button-desc">
-                    A very basic recreation of the frogger arcade game in javascript
-                </p>
-            </a>
-            <!--WhackaMole-->
-            <a href="Games/WhackaMole/index.html" class="background-hover" target="_blank">
-                <p class="button-title">
-                    <img src="images/portfolio/mole.png" alt="tntvillager" style="padding-right: 5px;" width="32px">
-                    Mole Mash
-                </p>
-                <p class="button-desc">
-                    A Javascript game recreation of the arcade game Whac-A-Mole
-                </p>
-            </a>
-            <!--Quick Cure-->
-            <a href="https://modrinth.com/mod/quick-cure-fabric" class="background-hover" target="_blank">
-                <p class="button-title">
-                    <img src="https://cdn.modrinth.com/data/cSKMfEiR/a64c8b1d1a0a790d39648a9e795139da00e76112.png"
-                        alt="quickcure" style="padding-right: 5px;" width="32px">
-                    Quick Cure
-                </p>
-                <p class="button-desc">
-                    A Minecraft mod for fabric that lets you instantly cure zombie villagers
-                </p>
-            </a>
-            <!--Hangman-->
-            <a href="Games/Hangman/index.html" class="background-hover" target="_blank">
-                <p class="button-title">
-                    <img src="images/portfolio/hangman.png"
-                        alt="hangman" style="padding-right: 5px;" width="32px">
-                        Hangman
-                </p>
-                <p class="button-desc">
-                    A recreation of the game hangman made to learn 1D arrays
-                </p>
-            </a>
-            <!--Hangman-->
-            <a href="Games/Connect4/index.html" class="background-hover" target="_blank">
-                <p class="button-title">
-                    <img src="images/portfolio/connect4.png"
-                        alt="connect4" style="padding-right: 5px;" width="32px">
-                        Connect 4
-                </p>
-                <p class="button-desc">
-                    A highly customizable Connect 4 game made to learn 2D arrays
-                </p>
-            </a>
+        <section class="portfolio" id="portfolio">
+            <!--Filled Via Javascript-->
         </section>
         <a href="https://www.youtube.com/@Logboy2000" class="background-hover" target="_blank">
             <img src="images/socials/youtube.png" alt="youtube">
@@ -104,9 +41,12 @@
 
     </main>
 
-    <footer>
-        Oi there, you made it to the bottom!
+    <footer id="footer">
+        
     </footer>
+
+
+    <script src="script.js"></script>
 </body>
 
 </html>
