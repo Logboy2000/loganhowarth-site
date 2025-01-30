@@ -8,10 +8,10 @@ function loaded() {
             isDownload: true,
         },
         {
-            title: "Frogger",
-            description: "A very basic recreation of the frogger arcade game in javascript",
-            imgSrc: "images/portfolio/frogger.png",
-            href: "Games/Frogger/frogger.html",
+            title: "IMG2FRHD",
+            description: "Convert image files into FreeRiderHD Tracks!",
+            imgSrc: "images/portfolio/img2frhd.png",
+            href: "https://logboy2000.github.io/IMG2FRHD/",
             isDownload: false,
         },
         {
@@ -26,6 +26,13 @@ function loaded() {
             description: "A Minecraft mod for fabric that lets you instantly cure zombie villagers",
             imgSrc: "https://cdn.modrinth.com/data/cSKMfEiR/a64c8b1d1a0a790d39648a9e795139da00e76112.png",
             href: "https://modrinth.com/mod/quick-cure-fabric",
+            isDownload: false,
+        },
+        {
+            title: "Frogger",
+            description: "A very basic recreation of the frogger arcade game in javascript",
+            imgSrc: "images/portfolio/frogger.png",
+            href: "Games/Frogger/frogger.html",
             isDownload: false,
         },
         {
