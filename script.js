@@ -22,6 +22,13 @@ function loaded() {
             isDownload: false,
         },
         {
+            title: "HK Guessr",
+            description: "A Geoguessr clone with the Hollow Knight map",
+            imgSrc: "https://logboy2000.github.io/HKGuessr/favicon.png",
+            href: "https://logboy2000.github.io/HKGuessr/",
+            isDownload: false,
+        },
+        {
             title: "Quick Cure",
             description: "A Minecraft mod for fabric that lets you instantly cure zombie villagers",
             imgSrc: "https://cdn.modrinth.com/data/cSKMfEiR/a64c8b1d1a0a790d39648a9e795139da00e76112.png",
@@ -44,7 +51,7 @@ function loaded() {
         },
         {
             title: "Connect 4",
-            description: "A highly customizable Connect 4 game made to learn 2D arrays",
+            description: "A very customizable Connect '4' game made to learn 2D arrays",
             imgSrc: "images/portfolio/connect4.png",
             href: "Games/Connect4/index.html",
             isDownload: false,
