@@ -3,7 +3,7 @@ function loaded() {
         {
             title: "HK Guessr",
             description: "A Geoguessr Clone using the Hollow Knight map",
-            imgSrc: "https://logboy2000.github.io/HKGuessr/favicon.png",
+            imgSrc: "https://logboy2000.github.io/HKGuessr/images/favicon.png",
             href: "https://logboy2000.github.io/HKGuessr/",
             isDownload: false,
         },
