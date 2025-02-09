@@ -1,11 +1,11 @@
 function loaded() {
     const buttons = [
         {
-            title: "The Legend of Charlie",
-            description: "A platformer I made in Gamemaker Studio 1.2 as a CS-10 final project (Windows Installer Download)",
-            imgSrc: "images/portfolio/charlie.png",
-            href: "Games/The-Legend-Of-Charlie-1.1.1.exe",
-            isDownload: true,
+            title: "HK Guessr",
+            description: "A Geoguessr Clone using the Hollow Knight map",
+            imgSrc: "https://logboy2000.github.io/HKGuessr/favicon.png",
+            href: "https://logboy2000.github.io/HKGuessr/",
+            isDownload: false,
         },
         {
             title: "IMG2FRHD",
@@ -15,25 +15,25 @@ function loaded() {
             isDownload: false,
         },
         {
-            title: "Mole Mash",
-            description: "A Javascript game recreation of the arcade game Whac-A-Mole",
-            imgSrc: "images/portfolio/mole.png",
-            href: "Games/MoleMash/index.html",
-            isDownload: false,
-        },
-        {
-            title: "HK Guessr",
-            description: "A Geoguessr clone with the Hollow Knight map",
-            imgSrc: "https://logboy2000.github.io/HKGuessr/favicon.png",
-            href: "https://logboy2000.github.io/HKGuessr/",
-            isDownload: false,
-        },
-        {
             title: "Quick Cure",
             description: "A Minecraft mod for fabric that lets you instantly cure zombie villagers",
             imgSrc: "https://cdn.modrinth.com/data/cSKMfEiR/a64c8b1d1a0a790d39648a9e795139da00e76112.png",
             href: "https://modrinth.com/mod/quick-cure-fabric",
             isDownload: false,
+        },
+        {
+            title: "Mole Mash",
+            description: "A web game recreation of Whac-A-Mole with some osu! inspiration.",
+            imgSrc: "images/portfolio/mole.png",
+            href: "Games/MoleMash/index.html",
+            isDownload: false,
+        },
+        {
+            title: "The Legend of Charlie",
+            description: "A platformer I made in Gamemaker Studio 1.2 as a CS-10 final project (Windows Installer Download)",
+            imgSrc: "images/portfolio/charlie.png",
+            href: "Games/The-Legend-Of-Charlie-1.1.1.exe",
+            isDownload: true,
         },
         {
             title: "Frogger",
@@ -70,7 +70,7 @@ function loaded() {
     });
 
 
-    document.getElementById('footer').innerText = '<footer>footer</footer>'
+    document.getElementById('footer').innerText = '<footer>look mom i made a footer!</footer>'
 }
 
 function createPortfolioButton(title, description, imgSrc, href, isDownload) {
