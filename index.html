@@ -4,432 +4,136 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Logan Howarth</title>
-		<style>
-			/* General Reset */
-			body,
-			h1,
-			h2,
-			h3,
-			h4,
-			h5,
-			h6,
-			p {
-				margin: 0;
-				padding: 0;
-			}
-
-			/* Global Styling */
-			body {
-				font-family: 'Inter', Arial, sans-serif;
-				background-image: url(images/bg.jpg);
-				background-repeat: repeat;
-				background-attachment: fixed;
-				background-position: center;
-				min-height: 100vh;
-
-				color: #e0e0e0;
-				line-height: 1.6;
-				padding: 1rem;
-			}
-
-			/* Button Styling */
-			button {
-				min-width: 10rem;
-				min-height: 2.5rem;
-				border-radius: 0.5rem;
-				border-color: #ffffff;
-				border-style: solid;
-
-				padding: 0.5rem 1rem;
-				margin: 0.5rem;
-
-				cursor: pointer;
-				color: #e0e0e0;
-				background-color: #ffffff00;
-				font-size: 1.25rem;
-				font-weight: 600;
-				transition: all 0.4s ease;
-			}
-
-			button:hover {
-				border-color: #ffffff00;
-				color: rgb(31, 31, 31);
-				background-color: #e0e0e0;
-				transform: scale(1.05);
-				box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-			}
-
-			button:active {
-				transform: scale(0.98);
-				box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
-			}
-
-			/* Header */
-			header {
-				width: 100%;
-				position: fixed;
-				top: 0;
-				left: 0;
-				background-color: rgba(80, 80, 80, 0.4);
-				backdrop-filter: blur(10px);
-				padding: 1rem 0;
-				text-align: center;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-				z-index: 100;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				gap: 1rem;
-			}
-
-			/* Content Container */
-			.container {
-				max-width: 1900px;
-				width: 90%;
-				margin: 50px auto;
-				padding: 2rem;
-				background-color: rgba(50, 50, 50, 0.6);
-				backdrop-filter: blur(10px);
-				border-radius: 12px;
-				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-				text-align: center;
-			}
-
-			/* Typography */
-			h1 {
-				font-size: 3rem;
-				font-weight: bold;
-			}
-			h2 {
-				font-size: 2rem;
-				font-weight: bold;
-			}
-			h3 {
-				font-size: 1.5rem;
-				font-weight: bold;
-			}
-
-			a {
-				color: #03a9f4;
-				text-decoration: underline;
-			}
-
-			a:active {
-				color: #03a9f4;
-			}
-
-			a:hover {
-				color: #007bbd;
-				skibidi: true;
-			}
-
-			.project-list {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 1rem;
-				justify-content: center;
-			}
-
-			.project {
-				background-color: #252525;
-				padding: 1rem;
-				border-radius: 16px;
-				width: 100%;
-				max-width: 400px;
-				min-height: 410px;
-				max-height: 410px;
-				text-align: center;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: space-between;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-				transition: all 0.4s ease;
-			}
-
-			.project:hover {
-				box-shadow: 0 6px 12px rgba(65, 65, 65, 0.5);
-			}
-
-			.project img {
-				width: 100%;
-				border-radius: 12px;
-				height: 200px;
-				object-fit: cover;
-				margin-bottom: 0.5rem;
-				margin-top: 0.5rem;
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-				transition: all 0.4s ease;
-			}
-
-			.project img:hover {
-				transform: scale(1.05);
-				box-shadow: 0 20px 40px rgba(58, 58, 58, 0.8);
-			}
-
-			.project-desc,
-			p {
-				font-size: 1rem;
-				margin-bottom: 0rem;
-				text-align: center;
-				text-overflow: ellipsis;
-				color: #b1b1b1;
-			}
-
-			.project-buttons {
-				width: 100%;
-				display: flex;
-				justify-content: space-between;
-				gap: 0.5rem;
-				margin-top: 0.5rem;
-			}
-
-			.project-buttons a {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				flex: 1;
-				padding: 0.75rem;
-				border-radius: 16px;
-				font-size: 1rem;
-				font-weight: bold;
-				text-decoration: none;
-				transition: all 0.4s ease;
-			}
-
-			.project-buttons a:hover {
-				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-			}
-
-			.source-button {
-				background-color: #ff990000;
-				border: #ff9800 solid 1px;
-				color: #ff9800;
-			}
-
-			.view-button {
-				background-color: #00000000;
-				border: #03a9f4 solid 1px;
-				color: #03a9f4;
-			}
-
-			.source-button:hover {
-				background-color: #e68900;
-				border-color: #ffffff00;
-				color: rgb(31, 31, 31);
-			}
-			.view-button:hover {
-				background-color: #03a9f4;
-				border-color: #ffffff00;
-				color: rgb(31, 31, 31);
-			}
-			/* Social Links Wrapper */
-			.social-links {
-				display: flex;
-				justify-content: center; /* Centers links horizontally */
-				gap: 1rem; /* Adds spacing between links */
-				flex-wrap: wrap; /* Allows wrapping if needed on smaller screens */
-				margin-top: 1rem;
-			}
-
-			/* Individual Social Link Styling */
-			.social-link {
-				background-color: #4e4e4e;
-				padding: 0.5rem;
-				border-radius: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				cursor: pointer;
-				width: 4rem;
-				height: 4rem;
-				transition: all 0.4s ease;
-				position: relative;
-				z-index: 0;
-			}
-
-			.social-link img {
-				width: 40px;
-				height: 40px;
-				object-fit: contain;
-				border-radius: 50%;
-				transition: all 0.4s ease;
-			}
-
-			.social-link:hover {
-				transform: scale(1.1);
-				background-color: rgba(255, 255, 255, 0.3);
-				box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
-				z-index: 10;
-			}
-
-			.list-container {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				text-align: left;
-			}
-			.list-container ul {
-				padding-left: 2rem;
-				list-style-type: circle;
-			}
-
-			footer {
-				margin-top: 4rem;
-				text-align: center;
-			}
-
-			.spacer {
-				height: 3rem;
-			}
-			/* Mobile Responsiveness (by ChatGPT) */
-			@media (max-width: 768px) {
-				.spacer {
-					height: 11rem;
-				}
-				/* Adjust header buttons for smaller screens */
-				header {
-					flex-direction: column;
-					padding: 0.5rem 0;
-				}
-
-				header button {
-					width: 90%;
-					margin: 0.25rem 0;
-				}
-
-				/* Adjust container padding and margins */
-				.container {
-					padding: 1rem;
-					margin: 30px auto;
-				}
-
-				/* Adjust font sizes for smaller screens */
-				h1 {
-					font-size: 2rem;
-				}
-				h2 {
-					font-size: 1.5rem;
-				}
-				h3 {
-					font-size: 1.25rem;
-				}
-
-				/* Adjust project layout */
-				.project {
-					max-width: 100%;
-					min-height: auto;
-					max-height: none;
-				}
-
-				.project img {
-					height: 150px;
-				}
-
-				/* Adjust social links */
-				.social-links {
-					gap: 0.5rem;
-				}
-
-				.social-link {
-					width: 3rem;
-					height: 3rem;
-				}
-
-				.social-link img {
-					width: 30px;
-					height: 30px;
-				}
-			}
-
-			@media (max-width: 480px) {
-				/* Further adjustments for very small screens */
-				body {
-					padding: 0.5rem;
-				}
-
-				.container {
-					width: 95%;
-					padding: 0.5rem;
-				}
-
-				.project-buttons {
-					flex-direction: column;
-					gap: 0.5rem;
-				}
-
-				.project-buttons a {
-					width: 100%;
-				}
-			}
-		</style>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 	</head>
-	<body onload="addProjectButtons()">
+	<body>
 		<header>
-			<button onclick="scrollToSection('about')">About</button>
-			<button onclick="scrollToSection('projects')">Projects</button>
-			<button onclick="scrollToSection('socials')">Socials</button>
+			<button onclick="scrollToSection('about')" class="header-button">
+				About
+			</button>
+			<button onclick="scrollToSection('projects')" class="header-button">
+				Projects
+			</button>
+			<button onclick="scrollToSection('skills')" class="header-button">
+				Skills
+			</button>
+			<button onclick="scrollToSection('contact')" class="header-button">
+				Contact
+			</button>
 		</header>
 
-		<div class="spacer"></div>
+		<div class="spacer" id="top"></div>
 
 		<section class="container" id="about">
-			<img src="images/pfp.png" alt="pfp" />
-			<h1>Logan Howarth</h1>
-			<p>@Logboy2000</p>
+			<h1 class="about-title">Logan Howarth</h1>
+			<p class="about-username">@Logboy2000</p>
+			<p class="about-description">
+				Hi! I'm Logan, a 16-year-old game developer and programmer. 
+				I love making video games and mods for them. 
+			</p>
+			<br />
+			<div class="social-links" id="socials">
+				<a
+					href="https://www.youtube.com/@Logboy2000"
+					class="social-link"
+					target="_blank"
+				>
+					<img src="images/socials/youtube.png" alt="youtube" />
+				</a>
+				<a
+					href="https://github.com/Logboy2000"
+					class="social-link"
+					target="_blank"
+				>
+					<img src="images/socials/github.png" alt="github" />
+				</a>
+				<a
+					href="https://modrinth.com/user/Logboy2000"
+					class="social-link"
+					target="_blank"
+				>
+					<img src="images/socials/modrinth.png" alt="modrinth" />
+				</a>
+				<a
+					href="https://steamcommunity.com/profiles/76561198881724047"
+					class="social-link"
+					target="_blank"
+				>
+					<img src="images/socials/steam.png" alt="gd" />
+				</a>
+				<a
+					href="https://www.speedrun.com/users/Logboy2000"
+					class="social-link"
+					target="_blank"
+				>
+					<img src="images/socials/speedrun.png" alt="speedrun" />
+				</a>
+			</div>
 		</section>
 
 		<section id="projects" class="container">
 			<h1>Projects</h1>
 			<hr />
-			<div class="project-list"></div>
-		</section>
-		<section class="social-links" id="socials">
-			<a
-				href="https://www.youtube.com/@Logboy2000"
-				class="social-link"
-				target="_blank"
-			>
-				<img src="images/socials/youtube.png" alt="youtube" />
-			</a>
-			<a
-				href="https://github.com/Logboy2000"
-				class="social-link"
-				target="_blank"
-			>
-				<img src="images/socials/github.png" alt="github" />
-			</a>
-			<a
-				href="https://modrinth.com/user/Logboy2000"
-				class="social-link"
-				target="_blank"
-			>
-				<img src="images/socials/modrinth.png" alt="modrinth" />
-			</a>
-			<a
-				href="https://steamcommunity.com/profiles/76561198881724047"
-				class="social-link"
-				target="_blank"
-			>
-				<img src="images/socials/steam.png" alt="gd" />
-			</a>
-			<a
-				href="https://www.speedrun.com/users/Logboy2000"
-				class="social-link"
-				target="_blank"
-			>
-				<img src="images/socials/speedrun.png" alt="speedrun" />
-			</a>
+			<div class="project-list" onload="initializeProjects()">
+				<!-- Project items will be dynamically added here -->
+			</div>
 		</section>
 
-		<footer>
+		<section id="skills" class="container">
+			<h1>Skills</h1>
+			<hr />
+			<div class="skills-container">
+				<img src="images/skills/python.png" alt="Python" />
+
+				<img src="images/skills/windows.png" alt="Windows" />
+				
+				<img src="images/skills/arch.png" alt="Arch Linux" />
+				
+				<img src="images/skills/intellij_idea.png" alt="IntelliJ IDEA" />
+				
+				<img src="images/skills/css.png" alt="CSS" />
+				
+				<img src="images/skills/godot.png" alt="Godot" />
+				
+				<img src="images/skills/linux.png" alt="Linux" />
+				
+				<img src="images/skills/davinci_resolve.png" alt="DaVinci Resolve" />
+				
+				<img src="images/skills/javascript.png" alt="Javascript" />
+				
+				<img src="images/skills/macos.png" alt="MacOS" />
+				
+				<img src="images/skills/gamemaker.png" alt="Gamemaker" />
+				
+				<img src="images/skills/arduino.png" alt="Arduino" />
+				
+				<img src="images/skills/vscode.png" alt="VS Code" />
+				
+				<img src="images/skills/java.png" alt="Java" />
+				
+				<img src="images/skills/html.png" alt="HTML" />
+				
+			</div>
+		</section>
+
+		<section id="contact" class="container">
+			<h1>Contact</h1>
+			<hr />
+			<p>I feel like there should be more here</p>
 			<p>
+				<a href="mailto:loganhowarth@icloud.com">loganhowarth@icloud.com</a>
+			</p>
+		</section>
+
+		<div class="container">
+			<p font-size="2em">
 				&copy; 2025 Logan Howarth |
 				<a href="https://opensource.org/licenses/MIT" target="_blank"
 					>MIT License</a
 				>
 			</p>
-		</footer>
+		</div>
 
 		<script src="main.js"></script>
 	</body>
