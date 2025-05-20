@@ -101,7 +101,7 @@ function initializeProjects() {
 			'HK Guessr',
 			'A Geoguessr Clone using the Hollow Knight map',
 			'images/portfolio/hollowguessr.png',
-			'https://logboy2000.github.io/HKGuessr/',
+			'https://hollowguessr.pages.dev/',
 			'https://github.com/Logboy2000/HKGuessr'
 		),
 		new Project(
