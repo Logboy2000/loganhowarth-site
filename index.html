@@ -1,140 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Logan Howarth</title>
-		<link rel="stylesheet" href="style.css" />
-		<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-	</head>
-	<body>
-		<header>
-			<button onclick="scrollToSection('about')" class="header-button">
-				About
-			</button>
-			<button onclick="scrollToSection('projects')" class="header-button">
-				Projects
-			</button>
-			<button onclick="scrollToSection('skills')" class="header-button">
-				Skills
-			</button>
-			<button onclick="scrollToSection('contact')" class="header-button">
-				Contact
-			</button>
-		</header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Logan Howarth</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="shortcut icon"
+            href="images/favicon.png"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+        <header>
+            <button onclick="scrollToSection('about')" class="header-button">
+                About
+            </button>
+            <button onclick="scrollToSection('projects')" class="header-button">
+                Projects
+            </button>
+            <button onclick="scrollToSection('skills')" class="header-button">
+                Skills
+            </button>
+            <button onclick="scrollToSection('contact')" class="header-button">
+                Contact
+            </button>
+        </header>
 
-		<div class="spacer" id="top"></div>
+        <div class="spacer" id="top"></div>
 
-		<section class="container" id="about">
-			<h1 class="about-title">Logan Howarth</h1>
-			<p class="about-username">@Logboy2000</p>
-			<p class="about-description">
-				Hi! I'm Logan, a 16-year-old game developer and programmer. 
-				I love making video games and mods for them. 
-			</p>
-			<br />
-			<div class="social-links" id="socials">
-				<a
-					href="https://www.youtube.com/@Logboy2000"
-					class="social-link"
-					target="_blank"
-				>
-					<img src="images/socials/youtube.png" alt="youtube" />
-				</a>
-				<a
-					href="https://github.com/Logboy2000"
-					class="social-link"
-					target="_blank"
-				>
-					<img src="images/socials/github.png" alt="github" />
-				</a>
-				<a
-					href="https://modrinth.com/user/Logboy2000"
-					class="social-link"
-					target="_blank"
-				>
-					<img src="images/socials/modrinth.png" alt="modrinth" />
-				</a>
-				<a
-					href="https://steamcommunity.com/profiles/76561198881724047"
-					class="social-link"
-					target="_blank"
-				>
-					<img src="images/socials/steam.png" alt="gd" />
-				</a>
-				<a
-					href="https://www.speedrun.com/users/Logboy2000"
-					class="social-link"
-					target="_blank"
-				>
-					<img src="images/socials/speedrun.png" alt="speedrun" />
-				</a>
-			</div>
-		</section>
+        <section class="container" id="about">
+            <h1 class="about-title">Logan Howarth</h1>
+            <p class="about-username">@Logboy2000</p>
+            <p class="about-description" id="aboutDescription"></p>
+            <br />
+            <div class="social-links" id="socials">
+                <a
+                    href="https://www.youtube.com/@Logboy2000"
+                    class="social-link"
+                    target="_blank"
+                >
+                    <img src="images/socials/youtube.png" alt="youtube" />
+                </a>
+                <a
+                    href="https://github.com/Logboy2000"
+                    class="social-link"
+                    target="_blank"
+                >
+                    <img src="images/socials/github.png" alt="github" />
+                </a>
+                <a
+                    href="https://modrinth.com/user/Logboy2000"
+                    class="social-link"
+                    target="_blank"
+                >
+                    <img src="images/socials/modrinth.png" alt="modrinth" />
+                </a>
+                <a
+                    href="https://steamcommunity.com/profiles/76561198881724047"
+                    class="social-link"
+                    target="_blank"
+                >
+                    <img src="images/socials/steam.png" alt="gd" />
+                </a>
+                <a
+                    href="https://www.speedrun.com/users/Logboy2000"
+                    class="social-link"
+                    target="_blank"
+                >
+                    <img src="images/socials/speedrun.png" alt="speedrun" />
+                </a>
+            </div>
+        </section>
 
-		<section id="projects" class="container">
-			<h1>Projects</h1>
-			<hr />
-			<div class="project-list" onload="initializeProjects()">
-				<!-- Project items will be dynamically added here -->
-			</div>
-		</section>
+        <section id="projects" class="container">
+            <h1>Projects</h1>
+            <hr />
+            <div class="project-list" onload="initializeProjects()">
+                <!-- Project items will be dynamically added here -->
+            </div>
+        </section>
 
-		<section id="skills" class="container">
-			<h1>Skills</h1>
-			<hr />
-			<div class="skills-container">
-				<img src="images/skills/python.png" alt="Python" />
+        <section id="skills" class="container">
+            <h1>Skills</h1>
+            <hr />
+            <div class="skills-container">
+                <img src="images/skills/python.png" alt="Python" />
 
-				<img src="images/skills/windows.png" alt="Windows" />
-				
-				<img src="images/skills/arch.png" alt="Arch Linux" />
-				
-				<img src="images/skills/intellij_idea.png" alt="IntelliJ IDEA" />
-				
-				<img src="images/skills/css.png" alt="CSS" />
-				
-				<img src="images/skills/godot.png" alt="Godot" />
-				
-				<img src="images/skills/linux.png" alt="Linux" />
-				
-				<img src="images/skills/davinci_resolve.png" alt="DaVinci Resolve" />
-				
-				<img src="images/skills/javascript.png" alt="Javascript" />
-				
-				<img src="images/skills/macos.png" alt="MacOS" />
-				
-				<img src="images/skills/gamemaker.png" alt="Gamemaker" />
-				
-				<img src="images/skills/arduino.png" alt="Arduino" />
-				
-				<img src="images/skills/vscode.png" alt="VS Code" />
-				
-				<img src="images/skills/java.png" alt="Java" />
-				
-				<img src="images/skills/html.png" alt="HTML" />
-				
-			</div>
-		</section>
+                <img src="images/skills/windows.png" alt="Windows" />
 
-		<section id="contact" class="container">
-			<h1>Contact</h1>
-			<hr />
-			<p>I feel like there should be more here</p>
-			<p>
-				<a href="mailto:loganhowarth@icloud.com">loganhowarth@icloud.com</a>
-			</p>
-		</section>
+                <img src="images/skills/arch.png" alt="Arch Linux" />
 
-		<div class="container">
-			<p font-size="2em">
-				&copy; 2025 Logan Howarth |
-				<a href="https://opensource.org/licenses/MIT" target="_blank"
-					>MIT License</a
-				>
-			</p>
-		</div>
+                <img
+                    src="images/skills/intellij_idea.png"
+                    alt="IntelliJ IDEA"
+                />
 
-		<script src="main.js"></script>
-	</body>
+                <img src="images/skills/css.png" alt="CSS" />
+
+                <img src="images/skills/godot.png" alt="Godot" />
+
+                <img src="images/skills/linux.png" alt="Linux" />
+
+                <img
+                    src="images/skills/davinci_resolve.png"
+                    alt="DaVinci Resolve"
+                />
+
+                <img src="images/skills/javascript.png" alt="Javascript" />
+
+                <img src="images/skills/macos.png" alt="MacOS" />
+
+                <img src="images/skills/gamemaker.png" alt="Gamemaker" />
+
+                <img src="images/skills/arduino.png" alt="Arduino" />
+
+                <img src="images/skills/vscode.png" alt="VS Code" />
+
+                <img src="images/skills/java.png" alt="Java" />
+
+                <img src="images/skills/html.png" alt="HTML" />
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h1>Contact</h1>
+            <hr />
+            <p>I feel like there should be more here</p>
+            <p>
+                <a href="mailto:loganhowarth@icloud.com"
+                    >loganhowarth@icloud.com</a
+                >
+            </p>
+        </section>
+
+        <div class="container">
+            <p font-size="2em">
+                &copy; 2025 Logan Howarth |
+                <a href="https://opensource.org/licenses/MIT" target="_blank"
+                    >MIT License</a
+                >
+            </p>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
 </html>
