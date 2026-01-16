@@ -93,6 +93,7 @@ a:hover {
 	grid-template-columns: 1fr 360px;
 	grid-template-rows: auto auto auto;
 	gap: 0.75rem 1rem;
+	height: 200px;
 }
 
 .project-top {
@@ -130,10 +131,8 @@ a:hover {
 }
 
 .project-large-image {
-	width: 100%;
-	min-width: 360px;
-	max-width: 360px;
-	height: 100%;
+	width: 360px;
+	height: 200px;
 	object-fit: cover;
 	border-radius: 16px;
 	box-shadow: 0 6px 18px rgba(0,0,0,0.5);
